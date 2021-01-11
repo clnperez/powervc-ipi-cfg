@@ -2,36 +2,35 @@ apiVersion: v1
 baseDomain: ibm.com
 compute:
 - architecture: ppc64le
-  hyperthreading: Enabled
-  name: worker
-  platform: {}
-  replicas: 3
+  hyperthreading: Enabled
+  name: worker
+  platform: {}
+  replicas: 3
 controlPlane:
-  architecture: ppc64le
-  hyperthreading: Enabled
-  name: master
-  platform: {}
-  replicas: 3
+  architecture: ppc64le
+  hyperthreading: Enabled
+  name: master
+  platform: {}
+  replicas: 3
 metadata:
-  creationTimestamp: null
-  name: christy-pvc
+  creationTimestamp: null
+  name: christy-pvc
 networking:
-  clusterNetwork:
-  - cidr: 10.128.0.0/14
-    hostPrefix: 23
-  machineNetwork:
-  - cidr: 10.0.0.0/16
-  networkType: OpenShiftSDN
-  serviceNetwork:
-  - 172.30.0.0/16
+  clusterNetwork:
+  - cidr: 10.128.0.0/14
+    hostPrefix: 23
+  machineNetwork:
+  - cidr: 10.0.0.0/16
+  networkType: OpenShiftSDN
+  serviceNetwork:
+  - 172.30.0.0/16
 platform:
-  openstack:
-    apiVIP: 10.0.0.5
-    cloud: scnl_powervc
-    computeFlavor: ocp4-bastion-c9a7-scg
-    rootVolume:
-      size: 25
-      type: "V7K base template"
-    externalDNS: null
-    ingressVIP: 10.0.0.7
+  openstack:
+    apiVIP: 10.0.0.5
+    cloud: scnl_powervc
+    defaultMachinePlatform:
+      type: ocp4-bastion-c9a7-scg
+    clusterOSImage: rhcos-47-fc-0
+    externalDNS: null
+    ingressVIP: 10.0.0.7
 publish: External
