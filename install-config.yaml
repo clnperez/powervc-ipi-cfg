@@ -28,9 +28,12 @@ platform:
   openstack:
     apiVIP: 10.0.0.5
     cloud: scnl_powervc
+    clusterOSImage: cicd-rhcos-46-82-2020091807061-0-openstack.ppc64le
     defaultMachinePlatform:
       type: ocp4-bastion-c9a7-scg
-    clusterOSImage: rhcos-47-fc-0
+    rootVolume:
+      size: 25
+      type: "V7K base template"
     externalDNS: null
     ingressVIP: 10.0.0.7
 publish: External
