@@ -31,6 +31,14 @@ platform:
     clusterOSImage: cicd-rhcos-46-82-2020091807061-0-openstack.ppc64le
     defaultMachinePlatform:
       type: ocp4-bastion-c9a7-scg
+    clusterOSImageProperties:
+      architecture: 'ppc64'
+      bdm_v2: 'true'
+      block_device_mapping: '[{"guest_format":null,"boot_index":0,"no_device":null,"image_id":null,"volume_id":"07d713db-7876-45bb-bfe1-b66746927550","disk_bus":null,"volume_size":null,"source_type":"volume","device_type":"disk","snapshot_id":null,"destination_type":"volume","delete_on_termination":true}]'
+      endianness: 'little-endian'
+      hypervisor_type: 'phyp'
+      os_distro: 'rhel'
+      root_device_name: '/dev/sda'
     rootVolume:
       size: 25
       type: "V7K base template"
