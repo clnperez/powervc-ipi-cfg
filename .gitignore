@@ -1,0 +1,3 @@
+openshift-install*
+test/
+clouds.yaml
