@@ -9,6 +9,16 @@ compute:
 controlPlane:
   architecture: ppc64le
   hyperthreading: Enabled
+  clusterOSImageProperties:
+    architecture: 'ppc64'
+    bdm_v2: 'true'
+    block_device_mapping: '[{"guest_format":null,"boot_index":0,"no_device":null,"image_id":null, "disk_bus":null,"volume_size": 120G, "volume_id": null, "device_type":"disk","snapshot_id":null,"destination_type":"volume","delete_on_termination":true}]'
+    endianness: 'little-endian'
+    hypervisor_type: 'phyp'
+    os_distro: 'rhel'
+  rootVolume:
+    size: 120
+    type: "V7K base template"
   name: master
   platform: {}
   replicas: 3
@@ -28,20 +38,19 @@ platform:
   openstack:
     apiVIP: 10.0.0.5
     cloud: scnl_powervc
-    clusterOSImage: cicd-rhcos-46-82-2020091807061-0-openstack.ppc64le
     defaultMachinePlatform:
       type: ocp4-bastion-c9a7-scg
+    externalDNS: null
+    clusterOSImage: https://art-rhcos-ci.s3.amazonaws.com/releases/rhcos-4.6-ppc64le/46.82.202010030041-0/ppc64le/rhcos-46.82.202010030041-0-qemu.ppc64le.qcow2.gz
     clusterOSImageProperties:
       architecture: 'ppc64'
       bdm_v2: 'true'
-      block_device_mapping: '[{"guest_format":null,"boot_index":0,"no_device":null,"image_id":null,"volume_id":"07d713db-7876-45bb-bfe1-b66746927550","disk_bus":null,"volume_size":null,"source_type":"volume","device_type":"disk","snapshot_id":null,"destination_type":"volume","delete_on_termination":true}]'
+      block_device_mapping: '[{"guest_format":null,"boot_index":0,"no_device":null,"image_id":null, "disk_bus":null,"volume_size":null,"device_type":"disk","snapshot_id":null,"destination_type":"volume","delete_on_termination":true}]'
       endianness: 'little-endian'
       hypervisor_type: 'phyp'
       os_distro: 'rhel'
-      root_device_name: '/dev/sda'
     rootVolume:
-      size: 25
+      size: 120
       type: "V7K base template"
-    externalDNS: null
     ingressVIP: 10.0.0.7
 publish: External
