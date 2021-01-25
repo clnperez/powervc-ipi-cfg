@@ -9,10 +9,13 @@ compute:
 controlPlane:
   architecture: ppc64le
   hyperthreading: Enabled
+  clusterOSImage: file:///home/christy/hacky/powervc-installer/unzipped_img/rhcos-46.82.202010030041-0-qemu.ppc64le.raw
+  defaultMachinePlatform:
+    type: ocp4-bastion-c9a7-scg
   clusterOSImageProperties:
     architecture: 'ppc64'
     bdm_v2: 'true'
-    block_device_mapping: '[{"guest_format":null,"boot_index":0,"no_device":null,"image_id":null, "disk_bus":null,"volume_size": 120G, "volume_id": null, "device_type":"disk","snapshot_id":null,"destination_type":"volume","delete_on_termination":true}]'
+    block_device_mapping: '[{"boot_index":0,"volume_size": 120G, "device_type":"disk","destination_type":"volume","source_type":"image"}]'
     endianness: 'little-endian'
     hypervisor_type: 'phyp'
     os_distro: 'rhel'
@@ -41,11 +44,11 @@ platform:
     defaultMachinePlatform:
       type: ocp4-bastion-c9a7-scg
     externalDNS: null
-    clusterOSImage: https://art-rhcos-ci.s3.amazonaws.com/releases/rhcos-4.6-ppc64le/46.82.202010030041-0/ppc64le/rhcos-46.82.202010030041-0-qemu.ppc64le.qcow2.gz
+    clusterOSImage: file:///home/christy/hacky/powervc-installer/unzipped_img/rhcos-46.82.202010030041-0-qemu.ppc64le.raw
     clusterOSImageProperties:
       architecture: 'ppc64'
       bdm_v2: 'true'
-      block_device_mapping: '[{"guest_format":null,"boot_index":0,"no_device":null,"image_id":null, "disk_bus":null,"volume_size":null,"device_type":"disk","snapshot_id":null,"destination_type":"volume","delete_on_termination":true}]'
+      block_device_mapping: '[{"guest_format":null,"boot_index":0,"no_device":null,"image_id":null, "disk_bus":null,"volume_size":null,"device_type":"disk","snapshot_id":null, "source_type":"image", "destination_type":"volume","delete_on_termination":true}]'
       endianness: 'little-endian'
       hypervisor_type: 'phyp'
       os_distro: 'rhel'
@@ -54,3 +57,5 @@ platform:
       type: "V7K base template"
     ingressVIP: 10.0.0.7
 publish: External
+pullSecret:
+sshKey: |
